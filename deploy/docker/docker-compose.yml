@@ -17,8 +17,8 @@ services:
     image: crapi/crapi-identity:${VERSION:-latest}
     #ports:
     #  - "${LISTEN_IP:-127.0.0.1}:8080:8080"
-    volumes:
-      - ./keys:/keys
+    #volumes:
+    #  - ./keys:/keys
     environment:
       - LOG_LEVEL=${LOG_LEVEL:-INFO}
       - DB_NAME=crapi
@@ -48,13 +48,13 @@ services:
       - TLS_KEYSTORE_PASSWORD=passw0rd
       - TLS_KEY_PASSWORD=passw0rd
       - TLS_KEY_ALIAS=identity
-    depends_on:
-      postgresdb:
-        condition: service_healthy
-      mongodb:
-        condition: service_healthy
-      mailhog:
-        condition: service_healthy
+    #depends_on:
+     # postgresdb:
+      #  condition: service_healthy
+      #mongodb:
+       # condition: service_healthy
+      #mailhog:
+       # condition: service_healthy
     healthcheck:
       test: /app/health.sh
       interval: 15s
