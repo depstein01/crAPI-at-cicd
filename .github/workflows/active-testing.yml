@@ -19,7 +19,14 @@ jobs:
             registry: ${{ vars.ACTIVE_REGISTRY_URL }}
             username: ${{ vars.ACTIVE_REGISTRY_USER }}
             password: ${{ secrets.ACTIVE_REGISTRY_PASSWORD }}
-  
+        
+        - name: Debug PWD
+          run: |
+            echo "Current Directory:"
+            echo $(pwd)
+            echo "Contents of Current Directory:"
+            ls -la
+
         - name: Active Testing Scan
           run: >
             docker run
