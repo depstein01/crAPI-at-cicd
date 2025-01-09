@@ -40,6 +40,7 @@ jobs:
             --test-group-id=${{ vars.TEST_GROUP_ID }}
             --branch-name=${{ github.head_ref || github.ref_name }}
             --severity-threshold=none
+            --analyze
   
     deploy:
       needs: scan
