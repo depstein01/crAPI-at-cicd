@@ -26,6 +26,10 @@ jobs:
             echo $(pwd)
             echo "Contents of Current Directory:"
             ls -la
+            echo "Entering /noname"
+            cd /noname
+            echo "Contents of /noname"
+            ls -la
 
         - name: Active Testing Scan
           run: >
