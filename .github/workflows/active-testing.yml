@@ -26,7 +26,7 @@ jobs:
             --add-host=host.docker.internal:host-gateway
             -e ACTIVE_CONFIG_FILE_PATH=/noname/active-config.json
             -e ACTIVE_BACKEND_URI=${{ vars.ACTIVE_BACKEND_URI }}
-            -v /noname:/noname
+            -v $(pwd)/noname:/noname
             ${{ vars.ACTIVE_REGISTRY_URL }}/active-cli:$(curl -k ${{vars.ACTIVE_API_URL}}/backend/version) scan
             --api-url=${{ vars.ACTIVE_API_URL }}
             --api-token=${{ secrets.ACTIVE_API_TOKEN }}
