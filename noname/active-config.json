@@ -1,0 +1,18 @@
+{
+  "version": "1.1.0",
+  "applicationId": "24da5b38-7978-4628-b161-7daa0296f8cd",
+  "host": "http://host.docker.internal:8888",
+  "sources": [
+    {
+      "name": "OAS",
+      "openApi": {
+        "sourcePath": "/noname/crapi-openapi-spec.json"
+      },
+      "auth_mappings": []
+    }
+  ],
+  "auths": [],
+  "app": {
+    "secrets": []
+  }
+}
