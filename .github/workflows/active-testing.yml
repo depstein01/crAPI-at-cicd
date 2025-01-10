@@ -28,6 +28,9 @@ jobs:
             echo "Current Directory Tree:"
             tree -a -L 3
 
+        - name: Checkout code
+         uses: actions/checkout@v3
+
         - name: Active Testing Scan
           run: >
             docker run
