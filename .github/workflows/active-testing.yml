@@ -34,7 +34,7 @@ jobs:
             --add-host=host.docker.internal:host-gateway
             -e ACTIVE_CONFIG_FILE_PATH=/noname/active-config.json
             -e ACTIVE_BACKEND_URI=${{ vars.ACTIVE_BACKEND_URI }}
-            -v $(pwd)/noname:/noname
+            -v /home/runner/work/crAPI-at-cicd/crAPI-at-cicd/noname:/noname
             ${{ vars.ACTIVE_REGISTRY_URL }}/active-cli:2.30.0 scan
             --api-url=${{ vars.ACTIVE_API_URL }}
             --api-token=${{ secrets.ACTIVE_API_TOKEN }}
