@@ -20,14 +20,6 @@ jobs:
             username: ${{ vars.ACTIVE_REGISTRY_USER }}
             password: ${{ secrets.ACTIVE_REGISTRY_PASSWORD }}
 
-        - name: Install tree utility
-          run: sudo apt-get update && sudo apt-get install -y tree
-    
-        - name: Show Recursive Directory Tree
-          run: |
-            echo "Current Directory Tree:"
-            tree -a -L 3
-
         - name: Checkout code
           uses: actions/checkout@v3
 
@@ -37,8 +29,8 @@ jobs:
             --add-host=host.docker.internal:host-gateway
             -e ACTIVE_CONFIG_FILE_PATH=/noname/active-config.json
             -e ACTIVE_BACKEND_URI=${{ vars.ACTIVE_BACKEND_URI }}
-            -v /home/runner/work/crAPI-at-cicd/crAPI-at-cicd/noname:/noname
-            ${{ vars.ACTIVE_REGISTRY_URL }}/active-cli:2.30.0 scan
+            -v $(pwd)/noname:/noname
+            ${{ vars.ACTIVE_REGISTRY_URL }}/active-cli:$(curl -k ${{vars.ACTIVE_API_URL}}/backend/version) scan
             --api-url=${{ vars.ACTIVE_API_URL }}
             --api-token=${{ secrets.ACTIVE_API_TOKEN }}
             --test-group-id=${{ vars.TEST_GROUP_ID }}
