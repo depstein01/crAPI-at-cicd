@@ -22,6 +22,15 @@ jobs:
 
         - name: Checkout code
           uses: actions/checkout@v3
+        
+        - name: Debug PWD
+          run: |
+            echo "Current Directory:"
+            echo $(pwd)
+            echo "Contents of Current Directory:"
+            ls -la
+            cd noname
+            ls -la
 
         - name: Active Testing Scan
           run: >
