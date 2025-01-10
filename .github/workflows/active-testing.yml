@@ -20,6 +20,14 @@ jobs:
             username: ${{ vars.ACTIVE_REGISTRY_USER }}
             password: ${{ secrets.ACTIVE_REGISTRY_PASSWORD }}
 
+        - name: Install tree utility
+          run: sudo apt-get update && sudo apt-get install -y tree
+    
+        - name: Show Recursive Directory Tree
+          run: |
+            echo "Current Directory Tree:"
+            tree -a -L 3
+
         - name: Active Testing Scan
           run: >
             docker run
